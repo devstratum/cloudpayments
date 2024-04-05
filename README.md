@@ -1,4 +1,4 @@
-# Cloudpayments
+# CloudPayments
 
 Online payment acceptance module for Joomla CMS
 
@@ -28,7 +28,7 @@ You can support the author's products and new projects
 
 ## Info
 ```
-Cloudpayments
+CloudPayments
 Online payment acceptance module for Joomla CMS
 
 Version:  1.0.0 
