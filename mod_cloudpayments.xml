@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0.0" method="upgrade" client="site">
+    <name>MOD_CLOUDPAYMENTS</name>
+	<author>Sergey Osipov</author>
+	<creationDate>05.04.2024</creationDate>
+	<copyright>Copyright (c) 2024 Sergey Osipov. All rights reserved.</copyright>
+	<license>GNU General Public License v2.0</license>
+	<authorEmail>info@devstratum.ru</authorEmail>
+	<authorUrl>https://devstratum.ru</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_CLOUDPAYMENTS_DESCRIPTION</description>
+	<namespace path="src">Devstratum\Module\Cloudpayments</namespace>
+	<scriptfile>script.php</scriptfile>
+	<files>
+		<filename module="mod_feedback">mod_cloudpayments.php</filename>
+		<folder>forms</folder>
+		<folder>services</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_cloudpayments.ini</language>
+		<language tag="en-GB">language/en-GB/mod_cloudpayments.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/mod_cloudpayments.ini</language>
+		<language tag="ru-RU">language/ru-RU/mod_cloudpayments.sys.ini</language>
+	</languages>
+	<media destination="mod_cloudpayments" folder="media">
+		<filename>joomla.asset.json</filename>
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+	<updateservers>
+		<server type="extension" priority="1" name="Cloudpayments">
+			https://devstratum.ru/files/software/cloudpayments-update.xml
+		</server>
+	</updateservers>
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="note" label="MOD_CLOUDPAYMENTS_OPTIONS"/>
+			</fieldset>
+			<fieldset name="fields">
+				<field
+					name="fields_list"
+					type="subform"
+					formsource="/modules/mod_cloudpayments/forms/form_fields.xml"
+					multiple="true"
+					layout="joomla.form.field.subform.repeatable"
+					groupByFieldset="true"
+					min="1"
+					max="10"
+					label="MOD_CLOUDPAYMENTS_FIELDS"
+					description="MOD_CLOUDPAYMENTS_FIELDS_DESC"
+				/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="form-select"
+					validate="moduleLayout"
+				/>
+			</fieldset>
+		</fields>
+    </config>
+</extension>
