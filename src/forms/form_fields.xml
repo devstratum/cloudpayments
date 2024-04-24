@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-    <fieldset name="fields_section" label="MOD_CLOUDPAYMENTS_FIELD">
+    <fieldset name="fields_section" label="MOD_CLOUDPAYMENTS_ITEM">
         <field
-            name="field_label"
+            name="field_sum"
+            type="number"
+            default="50"
+            label="MOD_CLOUDPAYMENTS_ITEM_SUM"
+            description="MOD_CLOUDPAYMENTS_ITEM_SUM_DESC"
+        />
+        <field
+            name="field_desc"
             type="text"
-            required="true"
-            label="MOD_CLOUDPAYMENTS_LABEL"
-            description="MOD_CLOUDPAYMENTS_LABEL_DESC"
+            label="MOD_CLOUDPAYMENTS_ITEM_TEXT"
+            description="MOD_CLOUDPAYMENTS_ITEM_TEXT_DESC"
         />
     </fieldset>
 </form>
