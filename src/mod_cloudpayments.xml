@@ -39,11 +39,27 @@
 			<fieldset name="basic">
 				<field type="note" label="MOD_CLOUDPAYMENTS_NOTE_OPTIONS"/>
 				<field
+					name="form_pubid"
+					type="text"
+					required="true"
+					label="MOD_CLOUDPAYMENTS_PUBID"
+					description="MOD_CLOUDPAYMENTS_PUBID_DESC"
+				/>
+				<field
 					name="form_currency"
 					type="text"
+					required="true"
 					label="MOD_CLOUDPAYMENTS_CURRENCY"
 					description="MOD_CLOUDPAYMENTS_CURRENCY_DESC"
 					default="RUB"
+				/>
+				<field
+					name="form_target"
+					type="text"
+					required="true"
+					label="MOD_CLOUDPAYMENTS_TARGET"
+					description="MOD_CLOUDPAYMENTS_TARGET_DESC"
+					default="Donation"
 				/>
 				<field
 					name="form_sumother"
@@ -92,6 +108,7 @@
 				<field
 					name="form_submit"
 					type="text"
+					required="true"
 					label="MOD_CLOUDPAYMENTS_SUBMIT"
 					description="MOD_CLOUDPAYMENTS_SUBMIT_DESC"
 					default="Donate"

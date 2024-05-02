@@ -4,6 +4,7 @@
         <field
             name="field_sum"
             type="number"
+            required="true"
             default="50"
             label="MOD_CLOUDPAYMENTS_ITEM_SUM"
             description="MOD_CLOUDPAYMENTS_ITEM_SUM_DESC"
