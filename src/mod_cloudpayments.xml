@@ -2,7 +2,7 @@
 <extension type="module" version="1.0.0" method="upgrade" client="site">
     <name>MOD_CLOUDPAYMENTS</name>
 	<author>Sergey Osipov</author>
-	<creationDate>05.04.2024</creationDate>
+	<creationDate>04.05.2024</creationDate>
 	<copyright>Copyright (c) 2024 Sergey Osipov. All rights reserved.</copyright>
 	<license>GNU General Public License v2.0</license>
 	<authorEmail>info@devstratum.ru</authorEmail>
@@ -61,6 +61,34 @@
 					description="MOD_CLOUDPAYMENTS_TARGET_DESC"
 					default="Donation"
 				/>
+				<field type="spacer" hr="true"/>
+				<field type="note" label="MOD_CLOUDPAYMENTS_NOTE_FORM"/>
+				<field
+					name="form_theme"
+					type="list"
+					default="light"
+					validate="options"
+					label="MOD_CLOUDPAYMENTS_THEME"
+					description="MOD_CLOUDPAYMENTS_THEME_DESC"
+				>
+					<option value="light">MOD_CLOUDPAYMENTS_THEME_OPTION_LIGHT</option>
+					<option value="dark">MOD_CLOUDPAYMENTS_THEME_OPTION_DARK</option>
+				</field>
+				<field
+					name="form_title"
+					type="text"
+					label="MOD_CLOUDPAYMENTS_TITLE"
+					description="MOD_CLOUDPAYMENTS_TITLE_DESC"
+					default="Title"
+				/>
+				<field
+					name="form_submit"
+					type="text"
+					required="true"
+					label="MOD_CLOUDPAYMENTS_SUBMIT"
+					description="MOD_CLOUDPAYMENTS_SUBMIT_DESC"
+					default="Donate"
+				/>
 				<field
 					name="form_sumother"
 					type="radio"
@@ -68,17 +96,6 @@
 					default="1"
 					label="MOD_CLOUDPAYMENTS_SUMOTHER"
 					description="MOD_CLOUDPAYMENTS_SUMOTHER_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="form_email"
-					type="radio"
-					layout="joomla.form.field.radio.switcher"
-					default="1"
-					label="MOD_CLOUDPAYMENTS_EMAIL"
-					description="MOD_CLOUDPAYMENTS_EMAIL_DESC"
 				>
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -95,6 +112,17 @@
 					<option value="1">JYES</option>
 				</field>
 				<field
+					name="form_email"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					label="MOD_CLOUDPAYMENTS_EMAIL"
+					description="MOD_CLOUDPAYMENTS_EMAIL_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
 					name="form_monthpay"
 					type="radio"
 					layout="joomla.form.field.radio.switcher"
@@ -105,14 +133,7 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field
-					name="form_submit"
-					type="text"
-					required="true"
-					label="MOD_CLOUDPAYMENTS_SUBMIT"
-					description="MOD_CLOUDPAYMENTS_SUBMIT_DESC"
-					default="Donate"
-				/>
+
 				<field type="spacer" hr="true"/>
 				<field type="note" label="MOD_CLOUDPAYMENTS_NOTE_PRIVACY"/>
 				<field

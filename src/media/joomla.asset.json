@@ -11,10 +11,15 @@
       "uri": "mod_cloudpayments/cloudpayments.css"
     },
     {
+      "name": "cloudpayments.core",
+      "type": "script",
+      "uri": "https://widget.cloudpayments.ru/bundles/cloudpayments.js"
+    },
+    {
       "name": "cloudpayments.main",
       "type": "script",
       "uri": "mod_cloudpayments/cloudpayments.js",
-      "dependencies": ["core"],
+      "dependencies": ["core", "cloudpayments.core"],
       "attributes": {
         "defer": true
       }

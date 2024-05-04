@@ -21,7 +21,10 @@ use Joomla\CMS\Helper\ModuleHelper;
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->getRegistry()->addRegistryFile('media/mod_cloudpayments/joomla.asset.json');
 
+$wa->useScript('cloudpayments.core');
 $wa->useScript('cloudpayments.main');
 $wa->useStyle('cloudpayments.main');
+
+$fields_list = $params->get('fields_list');
 
 require ModuleHelper::getLayoutPath('mod_cloudpayments', $params->get('layout', 'default'));
