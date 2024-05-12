@@ -7,13 +7,11 @@
             required="true"
             default="50"
             label="MOD_CLOUDPAYMENTS_ITEM_SUM"
-            description="MOD_CLOUDPAYMENTS_ITEM_SUM_DESC"
         />
         <field
             name="field_desc"
             type="text"
             label="MOD_CLOUDPAYMENTS_ITEM_TEXT"
-            description="MOD_CLOUDPAYMENTS_ITEM_TEXT_DESC"
         />
     </fieldset>
 </form>

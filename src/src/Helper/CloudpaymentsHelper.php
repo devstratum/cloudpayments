@@ -15,9 +15,6 @@ namespace Devstratum\Module\Cloudpayments\Site\Helper;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Response\JsonResponse;
-use Joomla\CMS\Helper\ModuleHelper;
-use Joomla\Input\Json;
-use Joomla\CMS\Language\Text;
 
 /**
  * Helper for mod_cloudpayments

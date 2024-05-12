@@ -1,6 +1,6 @@
 /**
  * @package         Cloudpayments
- * @version         1.0.0
+ * @version         0.9.1a
  * @author          Sergey Osipov <info@devstratum.ru>
  * @website         https://devstratum.ru
  * @copyright       Copyright (c) 2024 Sergey Osipov. All Rights Reserved
@@ -24,4 +24,407 @@
     display: block;
     position: relative;
     box-sizing: border-box;
+    background: var(--mod-cloudpayments-form-back);
+}
+
+.mod-cloudpayments__title {
+    display: block;
+    position: relative;
+    padding: 18px 24px;
+    font-size: 160%;
+    font-weight: 600;
+    color: var(--mod-cloudpayments-title-color);
+    background: var(--mod-cloudpayments-title-back);
+}
+
+.mod-cloudpayments__sums {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 24px;
+}
+
+.mod-cloudpayments__sum {
+    display: block;
+    position: relative;
+    margin: 4px 8px 4px 0;
+}
+
+.mod-cloudpayments__sum .mod-button {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    min-width: 100px;
+    height: 56px;
+    padding: 8px 32px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+    color: var(--mod-cloudpayments-button-color);
+    background: var(--mod-cloudpayments-button-back);
+    border-radius: 100px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mod-cloudpayments__sum .mod-button.other {
+    font-weight: 600;
+    font-size: 110%;
+}
+
+.mod-cloudpayments__sum .mod-button.active {
+    color: var(--mod-cloudpayments-button-color-active);
+    background: var(--mod-cloudpayments-button-back-active);
+}
+
+.mod-cloudpayments__fields {
+    display: block;
+    position: relative;
+    padding: 0 24px 24px;
+}
+
+.mod-cloudpayments__label {
+    display: block;
+    position: relative;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--mod-cloudpayments-label-color);
+}
+
+.mod-cloudpayments__field {
+    display: block;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.mod-cloudpayments__field:last-child {
+    margin: 0;
+}
+
+.mod-cloudpayments__field.field-cloudpayments_sum.hidden {
+    display: none;
+}
+
+.mod-cloudpayments__field.required .mod-cloudpayments__input::after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    top: 0;
+    left: 0;
+    line-height: 0;
+    background: var(--mod-cloudpayments-field-border-error);
+    z-index: 9;
+}
+
+.mod-cloudpayments__input {
+    display: block;
+    position: relative;
+}
+
+.mod-cloudpayments__input input,
+.mod-cloudpayments__input textarea {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    padding: 8px 16px;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: var(--mod-cloudpayments-field-color);
+    background: var(--mod-cloudpayments-field-back);
+    transition: 0.2s;
+    outline: 0;
+    outline-offset: 0;
+    box-shadow: none;
+}
+
+.mod-cloudpayments__input input:focus,
+.mod-cloudpayments__input textarea:focus {
+    border-color: var(--mod-cloudpayments-field-border-focus);
+    box-shadow: 0 2px 8px var(--mod-cloudpayments-shadow-color);
+}
+
+.mod-cloudpayments__input textarea {
+    height: 128px;
+    resize: none;
+}
+
+.mod-cloudpayments__input.error input,
+.mod-cloudpayments__input.error textarea {
+    border-color: var(--mod-cloudpayments-field-border-error);
+}
+
+.mod-cloudpayments__error {
+    display: block;
+    position: relative;
+    font-size: 90%;
+    color: var(--mod-cloudpayments-alert-back-warning);
+}
+
+.mod-cloudpayments__submit {
+    display: block;
+    position: relative;
+    padding: 0 24px 24px;
+}
+
+.mod-cloudpayments__submit .button-submit {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    max-width: 256px;
+    width: 100%;
+    height: 56px;
+    padding: 8px 16px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    color: var(--mod-cloudpayments-submit-color);
+    background: var(--mod-cloudpayments-submit-back);
+    box-shadow: 0 2px 8px var(--mod-cloudpayments-shadow-color);
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+}
+
+.mod-cloudpayments__submit .button-submit:hover {
+    background: var(--mod-cloudpayments-submit-back-hover);
+}
+
+.mod-cloudpayments__submit .button-submit.disabled {
+    color: var(--mod-cloudpayments-submit-color-disabled);
+    background: var(--mod-cloudpayments-submit-back-disabled);
+    cursor: default;
+}
+
+.mod-cloudpayments__submit .button-submit.freeze {
+    color: var(--mod-cloudpayments-submit-color-freeze);
+    background: var(--mod-cloudpayments-submit-back-freeze);
+    cursor: default;
+}
+
+.mod-cloudpayments__privacy {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 24px 24px;
+}
+
+.mod-cloudpayments__privacy .privacy-checkbox {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    line-height: 0;
+    border: 1px solid var(--mod-cloudpayments-checkbox-color);
+}
+
+.mod-cloudpayments__privacy .privacy-checkbox.checked::before {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    content: '';
+    width: 12px;
+    height: 8px;
+    top: 50%;
+    margin-top: -6px;
+    left: 50%;
+    margin-left: -6px;
+    border-left: 2px solid var(--mod-cloudpayments-checkbox-color);
+    border-bottom: 2px solid var(--mod-cloudpayments-checkbox-color);
+    transform: rotate(-45deg);
+}
+
+.mod-cloudpayments__privacy .privacy-link {
+    display: inline-block;
+    position: relative;
+    font-size: 90%;
+    color: var(--mod-cloudpayments-link-color);
+    text-decoration: underline;
+    margin-left: 16px;
+    transition: 0.2s;
+}
+
+.mod-cloudpayments__privacy .privacy-link:hover {
+    color: var(--mod-cloudpayments-link-color-hover);
+    text-decoration: none;
+}
+
+.mod-cloudpayments__privacy .privacy-text {
+    color: var(--mod-cloudpayments-field-color)!important;
+    text-decoration: none;
+}
+
+.mod-cloudpayments__monthpay {
+    display: inline-flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mod-cloudpayments__monthpay .monthpay-switch {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    width: 64px;
+    min-width: 64px;
+    height: 40px;
+    padding: 2px;
+    line-height: 0;
+    background: var(--mod-cloudpayments-switch-back);
+    border-radius: 60px;
+    transition: 0.2s;
+}
+
+.mod-cloudpayments__monthpay .monthpay-switch::before {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    content: '';
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 60px;
+}
+
+.mod-cloudpayments__monthpay.active .monthpay-switch {
+    justify-content: flex-end;
+    background: var(--mod-cloudpayments-switch-back-active);
+}
+
+.mod-cloudpayments__monthpay .monthpay-text {
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+    font-size: 110%;
+    color: var(--mod-cloudpayments-field-color);
+    text-decoration: none;
+    margin-left: 16px;
+    transition: 0.2s;
+}
+
+.mod-cloudpayments__alert {
+    display: block;
+    position: relative;
+    padding: 0 24px;
+}
+
+.mod-cloudpayments__alert .mod-alert {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px;
+    margin: 0 0 24px;
+    font-size: 90%;
+    color: var(--mod-cloudpayments-alert-color);
+    background: var(--mod-cloudpayments-alert-back);
+}
+
+.mod-cloudpayments__alert .mod-alert-success {
+    background-color: var(--mod-cloudpayments-alert-back-success);
+}
+
+.mod-cloudpayments__alert .mod-alert-warning {
+    background-color: var(--mod-cloudpayments-alert-back-warning);
+}
+
+.mod-cloudpayments__alert .mod-alert-danger {
+    background-color: var(--mod-cloudpayments-alert-back-danger);
+}
+
+@media (max-width: 559px) {
+    .mod-cloudpayments__title {
+        font-size: 140%;
+        padding: 16px;
+    }
+
+    .mod-cloudpayments__sums {
+        padding: 16px;
+    }
+
+    .mod-cloudpayments__fields {
+        padding: 0 16px 16px;
+    }
+
+    .mod-cloudpayments__submit {
+        padding: 0 16px 16px;
+    }
+
+    .mod-cloudpayments__privacy {
+        padding: 0 16px 16px;
+    }
+
+    .mod-cloudpayments__alert {
+        padding: 0 16px;
+    }
+
+    .mod-cloudpayments__submit .button-submit {
+        max-width: 100%;
+    }
+}
+
+/*-------------------------------------*/
+/* Cloudpayments Color Scheme          */
+/*-------------------------------------*/
+
+.mod-cloudpayments {
+    --mod-cloudpayments-form-back: #eceff1;
+
+    --mod-cloudpayments-title-color: #ffffff;
+    --mod-cloudpayments-title-back: #78909c;
+
+    --mod-cloudpayments-field-color: #37474f;
+    --mod-cloudpayments-field-back: #fafafa;
+    --mod-cloudpayments-field-border-focus: #b0bec5;
+    --mod-cloudpayments-field-border-error: #ef6c00;
+
+    --mod-cloudpayments-placeholder-color: #78909c;
+
+    --mod-cloudpayments-button-color: #37474f;
+    --mod-cloudpayments-button-back: #cfd8dc;
+    --mod-cloudpayments-button-color-active: #ffffff;
+    --mod-cloudpayments-button-back-active: #ef6c00;
+
+    --mod-cloudpayments-switch-back: #cfd8dc;
+    --mod-cloudpayments-switch-back-active: #ef6c00;
+
+    --mod-cloudpayments-submit-color: #ffffff;
+    --mod-cloudpayments-submit-back: #4caf50;
+    --mod-cloudpayments-submit-back-hover: #388e3c;
+    --mod-cloudpayments-submit-color-disabled: #eceff1;
+    --mod-cloudpayments-submit-back-disabled: #b0bec5;
+    --mod-cloudpayments-submit-color-freeze: #b0bec5;
+    --mod-cloudpayments-submit-back-freeze: #b0bec5;
+
+    --mod-cloudpayments-checkbox-color: #546e7a;
+
+    --mod-cloudpayments-link-color: #546e7a;
+    --mod-cloudpayments-link-color-hover: #388e3c;
+
+    --mod-cloudpayments-alert-color: #ffffff;
+    --mod-cloudpayments-alert-back: #37474f;
+
+    --mod-cloudpayments-alert-back-success: #388e3c;
+    --mod-cloudpayments-alert-back-warning: #ef6c00;
+    --mod-cloudpayments-alert-back-danger: #b71c1c;
+
+    --mod-cloudpayments-shadow-color: #b0bec5;
 }
