@@ -87,14 +87,6 @@
     padding: 0 24px 24px;
 }
 
-.mod-cloudpayments__label {
-    display: block;
-    position: relative;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--mod-cloudpayments-label-color);
-}
-
 .mod-cloudpayments__field {
     display: block;
     position: relative;
@@ -115,10 +107,11 @@
     content: '';
     width: 8px;
     height: 8px;
-    top: 0;
-    left: 0;
+    top: 4px;
+    right: 4px;
     line-height: 0;
     background: var(--mod-cloudpayments-field-border-error);
+    border-radius: 10px;
     z-index: 9;
 }
 
@@ -137,7 +130,7 @@
     padding: 8px 16px;
     margin: 0;
     border: 1px solid transparent;
-    border-radius: 0;
+    border-radius: 4px;
     color: var(--mod-cloudpayments-field-color);
     background: var(--mod-cloudpayments-field-back);
     transition: 0.2s;
@@ -160,6 +153,11 @@
 .mod-cloudpayments__input.error input,
 .mod-cloudpayments__input.error textarea {
     border-color: var(--mod-cloudpayments-field-border-error);
+}
+
+.mod-cloudpayments__input input::placeholder,
+.mod-cloudpayments__input textarea::placeholder {
+    color: var(--mod-cloudpayments-placeholder-color);
 }
 
 .mod-cloudpayments__error {
@@ -192,6 +190,7 @@
     color: var(--mod-cloudpayments-submit-color);
     background: var(--mod-cloudpayments-submit-back);
     box-shadow: 0 2px 8px var(--mod-cloudpayments-shadow-color);
+    border-radius: 6px;
     cursor: pointer;
     user-select: none;
     transition: 0.2s;
@@ -229,7 +228,12 @@
     min-width: 24px;
     height: 24px;
     line-height: 0;
-    border: 1px solid var(--mod-cloudpayments-checkbox-color);
+    border: 1px solid var(--mod-cloudpayments-checkbox-back);
+    border-radius: 4px;
+}
+
+.mod-cloudpayments__privacy .privacy-checkbox.checked {
+    background: var(--mod-cloudpayments-checkbox-back);
 }
 
 .mod-cloudpayments__privacy .privacy-checkbox.checked::before {
@@ -266,6 +270,10 @@
 .mod-cloudpayments__privacy .privacy-text {
     color: var(--mod-cloudpayments-field-color)!important;
     text-decoration: none;
+}
+
+.mod-cloudpayments__desc {
+    color: var(--mod-cloudpayments-field-color);
 }
 
 .mod-cloudpayments__monthpay {
@@ -336,6 +344,7 @@
     font-size: 90%;
     color: var(--mod-cloudpayments-alert-color);
     background: var(--mod-cloudpayments-alert-back);
+    border-radius: 4px;
 }
 
 .mod-cloudpayments__alert .mod-alert-success {
@@ -348,6 +357,31 @@
 
 .mod-cloudpayments__alert .mod-alert-danger {
     background-color: var(--mod-cloudpayments-alert-back-danger);
+}
+
+.mod-cloudpayments__alert .mod-alert::before {
+    display: block;
+    position: relative;
+    content: '';
+    margin-right: 8px;
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    min-height: 18px;
+    background: no-repeat center;
+    background-size: contain;
+}
+
+.mod-cloudpayments__alert .mod-alert-success::before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjAuMCBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMiBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMjU2QzAgMTE0LjYgMTE0LjYgMCAyNTYgMEMzOTcuNCAwIDUxMiAxMTQuNiA1MTIgMjU2QzUxMiAzOTcuNCAzOTcuNCA1MTIgMjU2IDUxMkMxMTQuNiA1MTIgMCAzOTcuNCAwIDI1NnpNMzcxLjggMjExLjhDMzgyLjcgMjAwLjkgMzgyLjcgMTgzLjEgMzcxLjggMTcyLjJDMzYwLjkgMTYxLjMgMzQzLjEgMTYxLjMgMzMyLjIgMTcyLjJMMjI0IDI4MC40TDE3OS44IDIzNi4yQzE2OC45IDIyNS4zIDE1MS4xIDIyNS4zIDE0MC4yIDIzNi4yQzEyOS4zIDI0Ny4xIDEyOS4zIDI2NC45IDE0MC4yIDI3NS44TDIwNC4yIDMzOS44QzIxNS4xIDM1MC43IDIzMi45IDM1MC43IDI0My44IDMzOS44TDM3MS44IDIxMS44eiIvPjwvc3ZnPg==);
+}
+
+.mod-cloudpayments__alert .mod-alert-warning::before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjAuMCBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMiBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTUwNi4zIDQxN2wtMjEzLjMtMzY0Yy0xNi4zMy0yOC01Ny41NC0yOC03My45OCAwbC0yMTMuMiAzNjRDLTEwLjU5IDQ0NC45IDkuODQ5IDQ4MCA0Mi43NCA0ODBoNDI2LjZDNTAyLjEgNDgwIDUyMi42IDQ0NSA1MDYuMyA0MTd6TTIzMiAxNjhjMC0xMy4yNSAxMC43NS0yNCAyNC0yNFMyODAgMTU0LjggMjgwIDE2OHYxMjhjMCAxMy4yNS0xMC43NSAyNC0yMy4xIDI0UzIzMiAzMDkuMyAyMzIgMjk2VjE2OHpNMjU2IDQxNmMtMTcuMzYgMC0zMS40NC0xNC4wOC0zMS40NC0zMS40NGMwLTE3LjM2IDE0LjA3LTMxLjQ0IDMxLjQ0LTMxLjQ0czMxLjQ0IDE0LjA4IDMxLjQ0IDMxLjQ0QzI4Ny40IDQwMS45IDI3My40IDQxNiAyNTYgNDE2eiIvPjwvc3ZnPg==);
+}
+
+.mod-cloudpayments__alert .mod-alert-danger::before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjAuMCBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMiBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTI1NiAwQzExNC42IDAgMCAxMTQuNiAwIDI1NnMxMTQuNiAyNTYgMjU2IDI1NnMyNTYtMTE0LjYgMjU2LTI1NlMzOTcuNCAwIDI1NiAwek0yMzIgMTUyQzIzMiAxMzguOCAyNDIuOCAxMjggMjU2IDEyOHMyNCAxMC43NSAyNCAyNHYxMjhjMCAxMy4yNS0xMC43NSAyNC0yNCAyNFMyMzIgMjkzLjMgMjMyIDI4MFYxNTJ6TTI1NiA0MDBjLTE3LjM2IDAtMzEuNDQtMTQuMDgtMzEuNDQtMzEuNDRjMC0xNy4zNiAxNC4wNy0zMS40NCAzMS40NC0zMS40NHMzMS40NCAxNC4wOCAzMS40NCAzMS40NEMyODcuNCAzODUuOSAyNzMuNCA0MDAgMjU2IDQwMHoiLz48L3N2Zz4=);
 }
 
 @media (max-width: 559px) {
@@ -401,20 +435,21 @@
     --mod-cloudpayments-button-color: #37474f;
     --mod-cloudpayments-button-back: #cfd8dc;
     --mod-cloudpayments-button-color-active: #ffffff;
-    --mod-cloudpayments-button-back-active: #ef6c00;
+    --mod-cloudpayments-button-back-active: #2e71fc;
 
     --mod-cloudpayments-switch-back: #cfd8dc;
-    --mod-cloudpayments-switch-back-active: #ef6c00;
+    --mod-cloudpayments-switch-back-active: #2e71fc;
 
     --mod-cloudpayments-submit-color: #ffffff;
     --mod-cloudpayments-submit-back: #4caf50;
     --mod-cloudpayments-submit-back-hover: #388e3c;
     --mod-cloudpayments-submit-color-disabled: #eceff1;
-    --mod-cloudpayments-submit-back-disabled: #b0bec5;
-    --mod-cloudpayments-submit-color-freeze: #b0bec5;
-    --mod-cloudpayments-submit-back-freeze: #b0bec5;
+    --mod-cloudpayments-submit-back-disabled: #78909c;
+    --mod-cloudpayments-submit-color-freeze: #78909c;
+    --mod-cloudpayments-submit-back-freeze: #78909c;
 
-    --mod-cloudpayments-checkbox-color: #546e7a;
+    --mod-cloudpayments-checkbox-color: #ffffff;
+    --mod-cloudpayments-checkbox-back: #2e71fc;
 
     --mod-cloudpayments-link-color: #546e7a;
     --mod-cloudpayments-link-color-hover: #388e3c;
@@ -428,3 +463,4 @@
 
     --mod-cloudpayments-shadow-color: #b0bec5;
 }
+

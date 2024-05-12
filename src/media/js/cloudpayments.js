@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sum_val === 'other') {
             cloudpayments_field.classList.remove('hidden');
             cloudpayments_sum.value = '';
-            cloudpayments_desc.innerHTML = 'Enter Sum';
+            cloudpayments_desc.innerHTML = sum_desc;
         } else {
             cloudpayments_field.classList.add('hidden');
             cloudpayments_sum.value = sum_val;
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let valid = validData(id, cloudpayments_data);
 
-        if (valid) cpRequest(id, cloudpayments_data, cloudpayments_options);
+        if (valid) cpRequest(id, cloudpayments_data);
     }
 
     // Validation Data
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (Object.keys(errors).length !== 0) {
             fieldsUpdate(id, errors);
-            setAlert(id, {type: 'warning', text: cloudpayments_options.alerts.error_fields});
+            setAlert(id, {type: 'warning', text: cloudpayments_options.alerts.alert_fields});
             return false;
         }
 
@@ -173,7 +173,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // CP Request
-    function cpRequest(id, data, options) {
-        console.log('valid');
+    function cpRequest(id, cpdata) {
+        let widget= new cp.CloudPayments();
+        let data = {};
+        let widgetOptions = {
+            publicId: cloudpayments_options.params.pubid,
+            description: cloudpayments_options.params.target,
+            currency: cloudpayments_options.params.currency,
+            amount: parseInt(cpdata.cloudpayments_sum, 10),
+            skin: 'mini',
+            autoClose: 5
+        };
+
+        if (cpdata.hasOwnProperty('cloudpayments_name')) data.name = cpdata.cloudpayments_name;
+        if (cpdata.hasOwnProperty('cloudpayments_email')) widgetOptions.email = cpdata.cloudpayments_email;
+        if (cpdata.hasOwnProperty('cloudpayments_email') && cpdata.hasOwnProperty('cloudpayments_monthpay')) {
+            if (cpdata.cloudpayments_monthpay === '1') {
+                widgetOptions.accountId = cpdata.cloudpayments_email;
+                data.cloudPayments = {};
+                data.cloudPayments.recurrent = {
+                    interval: 'Month',
+                    period: 1
+                };
+            }
+        }
+
+        widgetOptions.data = data;
+
+        widget.charge(widgetOptions,
+            function(options) { // success
+                fieldsClear(id);
+                setAlert(id, {type: 'success', text: cloudpayments_options.alerts.alert_success});
+            },
+            function(reason, options) { // fail
+                fieldsClear(id);
+                setAlert(id, {type: 'danger', text: cloudpayments_options.alerts.alert_fail});
+            }
+        );
     }
 });

@@ -45,10 +45,17 @@ switch ($params->get('form_currency')) {
 
 // Options JS
 $options = [
+    'params' => [
+        'pubid'     => $params->get('form_pubid'),
+        'currency'  => $params->get('form_currency'),
+        'target'    => $params->get('form_target'),
+    ],
     'alerts' => [
-        'error_required' => Text::_('MOD_CLOUDPAYMENTS_ERROR_REQUIRED'),
-        'error_email' => Text::_('MOD_CLOUDPAYMENTS_ERROR_EMAIL'),
-        'error_fields' => Text::_('MOD_CLOUDPAYMENTS_ERROR_FIELDS'),
+        'alert_success'     => Text::_('MOD_CLOUDPAYMENTS_ALERT_SUCCESS'),
+        'alert_fail'        => Text::_('MOD_CLOUDPAYMENTS_ALERT_FAIL'),
+        'alert_fields'      => Text::_('MOD_CLOUDPAYMENTS_ALERT_FIELDS'),
+        'error_required'    => Text::_('MOD_CLOUDPAYMENTS_ERROR_REQUIRED'),
+        'error_email'       => Text::_('MOD_CLOUDPAYMENTS_ERROR_EMAIL')
     ]
 ];
 

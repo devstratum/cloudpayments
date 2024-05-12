@@ -39,6 +39,7 @@
 					required="true"
 					label="MOD_CLOUDPAYMENTS_PUBID"
 					description="MOD_CLOUDPAYMENTS_PUBID_DESC"
+					default="test_api_00000000000000000000002"
 				/>
 				<field
 					name="form_currency"

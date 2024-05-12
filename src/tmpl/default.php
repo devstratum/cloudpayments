@@ -21,8 +21,6 @@ use Joomla\CMS\Language\Text;
 
 $disabled = '';
 
-//echo '<pre>'; print_r($fields_list); echo '</pre>';
-
 ?>
 
 <div class="mod-cloudpayments" id="mod_cloudpayments_<?php echo $module->id; ?>" data-form-id="<?php echo $module->id; ?>">
@@ -42,7 +40,7 @@ $disabled = '';
             <?php $flag_active=false; endforeach; ?>
             <?php if ($params->get('form_sumother')): ?>
                 <div class="mod-cloudpayments__sum">
-                    <div class="mod-button other" data-form-id="<?php echo $module->id; ?>" data-sum-val="other" data-sum-desc=""><?php echo Text::_('MOD_CLOUDPAYMENTS_TEXT_SUMOTHER'); ?></div>
+                    <div class="mod-button other" data-form-id="<?php echo $module->id; ?>" data-sum-val="other" data-sum-desc="<?php echo Text::_('MOD_CLOUDPAYMENTS_TEXT_SUMINPUT'); ?>"><?php echo Text::_('MOD_CLOUDPAYMENTS_TEXT_SUMOTHER'); ?></div>
                 </div>
             <?php endif; ?>
         </div>
@@ -53,7 +51,7 @@ $disabled = '';
             </div>
         </div>
 
-        <?php if ($params->get('form_monthpay')): ?>
+        <?php if ($params->get('form_monthpay') && $params->get('form_email')): ?>
             <div class="mod-cloudpayments__fields">
                 <div class="mod-cloudpayments__monthpay" data-form-id="<?php echo $module->id; ?>">
                     <div class="monthpay-switch"></div>
