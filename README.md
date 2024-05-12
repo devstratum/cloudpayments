@@ -31,7 +31,7 @@ You can support the author's products and new projects
 CloudPayments
 Online payment acceptance module for Joomla CMS
 
-Version:  1.0.0 
+Version:  0.9.1a 
 License:  GNU GPL v2.0 
 Author:   Sergey Osipov 
 Website:  https://devstratum.ru 
