@@ -20,7 +20,7 @@ Online payment acceptance module for Joomla CMS
 
 You can support the author's products and new projects
 
-* [Donate via Tinkoff](https://pay.cloudtips.ru/p/1daecc1f)
+* [Donate via T-Bank](https://pay.cloudtips.ru/p/1daecc1f)
 
 ## Install
 
